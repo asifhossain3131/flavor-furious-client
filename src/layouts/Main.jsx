@@ -6,7 +6,7 @@ const Main = () => {
     return (
         <>
         <Header></Header>
-        <div className='max-w-7xl'>
+        <div>
             <Outlet></Outlet>
         </div>
         </>

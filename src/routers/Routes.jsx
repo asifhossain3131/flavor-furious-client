@@ -3,7 +3,9 @@ import {
     RouterProvider,
   } from "react-router-dom";
 import Main from "../layouts/Main";
-import Banner from "../pages/public/home/banner/Banner";
+import Home from "../pages/public/home/home/Home";
+import Shop from "../layouts/Shop";
+import Menus from "../pages/public/menus/menus/Menus";
 
   const router=createBrowserRouter([
     {
@@ -12,10 +14,20 @@ import Banner from "../pages/public/home/banner/Banner";
         children:[
             {
                 path:'/',
-                element:<Banner></Banner>
+                element:<Home></Home>
             }
         ]
          
+    },
+    {
+      path:'shop',
+      element:<Shop></Shop>,
+      children:[
+        {
+          path:'',
+          element:<Menus></Menus>
+        }
+      ]
     }
   ])
 
