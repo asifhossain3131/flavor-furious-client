@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import PopularCard from '../../../../../components/PopularCard';
 import ButtonPrimary from '../../../../../components/ButtonPrimary';
+import { Link } from 'react-router-dom';
 
 
 const PopularFoods = () => {
@@ -44,7 +45,7 @@ const PopularFoods = () => {
             </div>
 
            <div className='w-1/2 mx-auto text-center'>
-           <ButtonPrimary btnTitle='View all foods'></ButtonPrimary>
+           <Link to='/shop'><ButtonPrimary btnTitle='View all foods'></ButtonPrimary></Link>
            </div>
         </>
     );

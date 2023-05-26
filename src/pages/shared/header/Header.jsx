@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
     const navBarOption=<>
@@ -8,6 +9,8 @@ const Header = () => {
       <li><Link to='/shop'>Our Shop</Link></li>
       <li><Link>Contact us</Link></li>
     </>
+
+    const{user}=useContext(AuthContext)
     return (
         <>
             <div className="navbar bg-white bg-opacity-50 fixed z-20 p-4">
@@ -45,7 +48,10 @@ const Header = () => {
         </div>
       </div>
     </div>
-    <div className="dropdown dropdown-end">
+   {
+ user? 
+ <>
+  <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img src="https://picsum.photos/200/300" />
@@ -62,6 +68,11 @@ const Header = () => {
         <li><a>Logout</a></li>
       </ul>
     </div>
+ </> :
+ <>
+<Link to='/login'><button className="btn font-semibold btn-active hover:bg-yellow-500 btn-ghost">Login</button></Link>
+ </>
+   }
   </div>
 </div>
         </>

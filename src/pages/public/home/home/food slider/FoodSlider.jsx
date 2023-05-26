@@ -39,7 +39,7 @@ const FoodSlider = () => {
             <SwiperSlide
             key={category._id}
             >
-              <Link>
+              <Link to={`/shop/shop/categoryFood/${category.category}`}>
               <div className='overflow-hidden  relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl'>
                     <img
                       src={category?.image}

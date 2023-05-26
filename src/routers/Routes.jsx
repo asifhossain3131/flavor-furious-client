@@ -7,6 +7,8 @@ import Home from "../pages/public/home/home/Home";
 import Shop from "../layouts/Shop";
 import Menus from "../pages/public/menus/menus/Menus";
 import CategoryWiseMenu from "../pages/public/menus/category wise menu/CategoryWiseMenu";
+import Login from "../pages/public/user/Login";
+import Register from "../pages/public/user/Register";
 
   const router=createBrowserRouter([
     {
@@ -16,6 +18,14 @@ import CategoryWiseMenu from "../pages/public/menus/category wise menu/CategoryW
             {
                 path:'/',
                 element:<Home></Home>
+            },
+            {
+              path:'/login',
+              element:<Login></Login>
+            },
+            {
+              path:'/register',
+              element:<Register></Register>
             }
         ]
          
@@ -26,7 +36,8 @@ import CategoryWiseMenu from "../pages/public/menus/category wise menu/CategoryW
       children:[
         {
           path:'/shop',
-          element:<Menus></Menus>
+          element:<Menus></Menus>,
+          loader:()=>fetch('http://localhost:5000/countMenus')
         },
         {
           path:'shop/categoryFood/:name',
