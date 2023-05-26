@@ -5,7 +5,7 @@ const Header = () => {
     const navBarOption=<>
       <li><Link to='/'>Home</Link></li>
       <li><Link>Our Menu</Link></li>
-      <li><Link to='shop'>Our Shop</Link></li>
+      <li><Link to='/shop'>Our Shop</Link></li>
       <li><Link>Contact us</Link></li>
     </>
     return (
