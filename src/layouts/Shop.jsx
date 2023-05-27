@@ -3,6 +3,7 @@ import Header from '../pages/shared/header/Header';
 import { Outlet } from 'react-router-dom';
 import LeftNavBar from '../pages/public/menus/left navbar/LeftNavBar';
 import MenuBanner from '../pages/public/menus/menu banner/MenuBanner';
+import Footer from '../pages/shared/footer/Footer';
 
 const Shop = () => {
     return (
@@ -16,6 +17,7 @@ const Shop = () => {
             </div>
              <Outlet></Outlet>
             </div>
+            <Footer></Footer>
         </>
     );
 };
