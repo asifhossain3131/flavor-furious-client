@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
         })
     }
 
-    const login=(email,password)=>{
+    const signIn=(email,password)=>{
         setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
@@ -62,7 +62,7 @@ user,
 loading,
 createUser,
 profileUpdate,
-login,
+signIn,
 googleLogin,
 gitLogin,
 logOut,
