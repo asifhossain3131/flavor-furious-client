@@ -9,6 +9,8 @@ import Menus from "../pages/public/menus/menus/Menus";
 import CategoryWiseMenu from "../pages/public/menus/category wise menu/CategoryWiseMenu";
 import Login from "../pages/public/user/Login";
 import Register from "../pages/public/user/Register";
+import SingleFood from "../pages/public/menus/single food/SingleFood";
+import PrivateRoute from "./PrivateRoute";
 
   const router=createBrowserRouter([
     {
@@ -42,6 +44,10 @@ import Register from "../pages/public/user/Register";
         {
           path:'shop/categoryFood/:name',
           element:<CategoryWiseMenu></CategoryWiseMenu>
+        },
+        {
+          path:'singlefood/:id',
+          element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>
         }
       ]
     }

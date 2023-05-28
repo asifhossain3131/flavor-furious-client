@@ -3,7 +3,10 @@ import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../providers/AuthProvider";
 import registration from "../../../../public/112454-form-registration.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaUndoAlt } from "react-icons/fa";
+import { toast } from "react-hot-toast";
+
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -15,10 +18,38 @@ const Register = () => {
   } = useForm();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const[isDisabled,setDisabled]=useState(true)
+  const randomNumber=Math.floor(1000+Math.random(10)*9000)
+  const [captcha,setCaptcha]=useState(randomNumber)
+  const navigate=useNavigate()
+  const location=useLocation()
+ const target=location?.state?.from||'/shop'
 
   const handleRegister = (data) => {
-    console.log(data);
+    setError('')
+    setSuccess('')
+   const {name,email,photo,password,confirm}=data
+       if(password!==confirm){
+        return setError('passowrd not matched')
+       }
+       createUser(email,password)
+       .then(res=>{
+          toast.success('Registration has been successful')
+          navigate(target,{replace:true})
+       })
+       .catch(err=>{
+         setError('Something went wrong. Please try again!')
+       })
   };
+
+  const handleCaptcha=e=>{
+    if(e.target.value==captcha){
+      setDisabled(false)
+    }
+    else{
+      setDisabled(true)
+    }
+  }
 
   return (
     <div className="mx-12 flex flex-col lg:flex-row items-center justify-center">
@@ -71,12 +102,11 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control" >
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                onChange={() => handlePassCheck(e)}
                 type="password"
                 placeholder="password"
                 {...register("password", {
@@ -87,6 +117,7 @@ const Register = () => {
                 })}
                 className="input input-bordered"
               />
+              <span className="text-gray-500"><small>Password should contain at least 6 characters with at least one capital, one small and one special character</small></span>
               {errors.password?.type === "required" && (
                 <p className="text-red-600">Password is required</p>
               )}
@@ -117,10 +148,25 @@ const Register = () => {
                 required
               />
             </div>
+             <p className="text-center mt-4 mb-2 text-2xl font-bold">{captcha}</p>
+             <div className="form-control w-9/12">
+              <label className="label">
+                <span className="label-text">Captcha</span>
+              </label>
+              <input
+              onChange={handleCaptcha}
+                type="number"
+                placeholder="Write the code here"
+              
+                className="input input-bordered"
+                required
+              /> <span onClick={()=>setCaptcha(randomNumber)} className="m-3 flex cursor-pointer gap-4 items-center"> <FaUndoAlt></FaUndoAlt> Reload captcha</span>
+            </div>
             <span className="text-red-500">{error}</span>
             <span className="text-green-500">{success}</span>
             <div className="form-control mt-6">
               <input
+              disabled={isDisabled}
                 type="submit"
                 value="Create an account"
                 className="btn border-none bg-yellow-500 hover:bg-yellow-400 font-semibold"

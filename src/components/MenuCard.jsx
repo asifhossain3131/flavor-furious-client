@@ -1,6 +1,7 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
 import ButtonSecondery from './ButtonSecondery';
+import { Link } from 'react-router-dom';
 
 const MenuCard = ({categoryFood}) => {
     const{_id,category,details,image,isPopular,name,price,rating}=categoryFood
@@ -29,7 +30,8 @@ const MenuCard = ({categoryFood}) => {
     <p>{details}</p>
     <div className="card-actions flex items-center justify-between">
   <h1 className='text-yellow-700 font-semibold text-2xl'>${price}</h1>
-  <ButtonSecondery btnTitle='see details'></ButtonSecondery>
+  <Link to={`singlefood/${_id}`}><ButtonSecondery btnTitle='see details'></ButtonSecondery>
+</Link>
     </div>
   </div>
   </div>

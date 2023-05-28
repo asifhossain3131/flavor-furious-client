@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import login from '../../../../public/78126-secure-login.json'
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const{signIn}=useContext(AuthContext)
@@ -11,7 +11,9 @@ const Login = () => {
     const[show,setShow]=useState(false)
     const [error,setError]=useState('')
     const[success,setSuccess]=useState('')
-    const randomNumber=Math.floor(1000+Math.random(10)*9000)
+    const navigate=useNavigate()
+    const location=useLocation()
+    const target=location?.state?.from?.pathname|| '/'
      
     const handleLogin=data=>{
       setError('')
@@ -19,6 +21,7 @@ const Login = () => {
         signIn(data.email,data.password)
         .then(res=>{
           setSuccess('User created successfully')
+          navigate(target,{replace:true})
         })
         .catch(error=>{
           setError('Check your email or password')
@@ -64,7 +67,7 @@ const Login = () => {
           <input type="submit" value="Login" className='btn border-none bg-yellow-500 hover:bg-yellow-400 font-semibold'/>
         </div>
     </form>
-    <span className='text-gray-700 mt-4'>Don't have an account? <Link to='/register' className='text-blue-500 underline'>Create an account</Link></span>
+    <span className='text-gray-700 mt-4'>Don't have an account? <Link state={{from:target}} to='/register' className='text-blue-500 underline'>Create an account</Link></span>
       </div>
     </div>
         </div>
