@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../providers/AuthProvider";
 import registration from "../../../../public/112454-form-registration.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaUndoAlt } from "react-icons/fa";
+import {  FaUndoAlt } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 
 
@@ -179,6 +179,12 @@ const Register = () => {
               Login
             </Link>
           </span>
+          <div className="space-y-4">
+          <div className="divider">OR</div>
+          <p className="text-center font-semibold">Continue sign up with</p>
+          <button className="btn border-none bg-gray-300 text-black hover:bg-opacity-10 w-full"> Continue with Gmail</button>
+          <button className="btn border-none bg-blue-600 hover:bg-blue-500 w-full">Continue with Facebook</button>
+          </div>
         </div>
       </div>
     </div>

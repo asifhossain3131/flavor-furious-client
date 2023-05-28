@@ -10,8 +10,12 @@ const Header = () => {
       <li><Link>Contact us</Link></li>
     </>
 
-    const{user}=useContext(AuthContext)
+    const{user,logOut}=useContext(AuthContext)
     const location=useLocation()
+    
+    const handleLogOut=()=>{
+      logOut()
+    }
     return (
         <>
             <div className={`navbar bg-white bg-opacity-50  p-4 ${location.pathname.includes('login') || 'fixed z-20'}`}>
@@ -66,7 +70,7 @@ const Header = () => {
           </a>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li onClick={handleLogOut}><a>Logout</a></li>
       </ul>
     </div>
  </> :
