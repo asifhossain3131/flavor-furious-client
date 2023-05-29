@@ -47,7 +47,8 @@ import PrivateRoute from "./PrivateRoute";
         },
         {
           path:'singlefood/:id',
-          element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>
+          element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
         }
       ]
     }

@@ -1,10 +1,11 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
 import ButtonSecondery from './ButtonSecondery';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const MenuCard = ({categoryFood}) => {
     const{_id,category,details,image,isPopular,name,price,rating}=categoryFood
+    const location=useLocation()
     return (
         <div className="card w-96 bg-base-100 shadow-xl"  data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
@@ -30,7 +31,7 @@ const MenuCard = ({categoryFood}) => {
     <p>{details}</p>
     <div className="card-actions flex items-center justify-between">
   <h1 className='text-yellow-700 font-semibold text-2xl'>${price}</h1>
-  <Link to={`singlefood/${_id}`}><ButtonSecondery btnTitle='see details'></ButtonSecondery>
+  <Link to={location.pathname.includes('categoryFood')? `/shop/singlefood/${_id}` : `singlefood/${_id}`}><ButtonSecondery btnTitle='see details'></ButtonSecondery>
 </Link>
     </div>
   </div>
