@@ -12,7 +12,7 @@ import Register from "../pages/public/user/Register";
 import SingleFood from "../pages/public/menus/single food/SingleFood";
 import PrivateRoute from "./PrivateRoute";
 import UserDashboard from "../layouts/UserDashboard";
-import UserHome from "../pages/private/user dashboard/user dashboard info/UserHome";
+import UserHome from "../pages/private/dashboard/user dashboard/UserHome";
 
   const router=createBrowserRouter([
     {
@@ -55,12 +55,16 @@ import UserHome from "../pages/private/user dashboard/user dashboard info/UserHo
       ]
     },
     {
-      path:'/userDashboard',
+      path:'dashboard',
       element:<UserDashboard></UserDashboard>,
       children:[
         {
-          path:'/userDashboard',
+          path:'dashboard',
           element:<UserHome></UserHome>
+        },
+        {
+          path:'userCart',
+          element:<UserDashboard></UserDashboard>
         }
       ]
     }

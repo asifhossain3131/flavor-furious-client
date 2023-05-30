@@ -56,7 +56,7 @@ const Header = () => {
           <span className="font-bold text-lg">{totalFoods}</span>
           <span className="text-info">Subtotal: ${totalCost?.toFixed(2)}</span>
           <div className="card-actions">
-            <button className="btn btn-primary btn-block">View cart</button>
+           <Link to='/dashboard'><button className="btn btn-primary w-full">View cart</button></Link>
           </div>
         </div>
       </div>

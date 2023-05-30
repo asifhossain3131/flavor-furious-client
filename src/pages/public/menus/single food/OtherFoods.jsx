@@ -24,34 +24,24 @@ const OtherFoods = ({food}) => {
     return (
     <div className='mt-20 w-9/12 mx-auto text-center'>
         <h1 className='font-semibold text-4xl my-8'>Other Foods of {categoryName}</h1>
-             <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper p-4 "
-      >
-        {
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+          {
             sameFoods.map(sameFood=>
-                <SwiperSlide key={sameFood._id}>
-                   <div className=" bg-base-100 shadow-xl">
-  <figure className="px-10 pt-10">
-    <img src={sameFood.image} alt="Shoes" className="rounded-xl w-full h-32" />
-  </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title">{sameFood.name}</h2>
-    <p className='font-semibold text-xl'>${sameFood.price}</p>
-    <div className="card-actions">
-      <Link to={`/shop/singlefood/${sameFood._id}`}><button className="btn btn-primary">See Details</button></Link>
-    </div>
-  </div>
-</div>
-                </SwiperSlide>
-                )
-        }
-      </Swiper>
+              <div key={sameFood._id} className=" bg-base-100 shadow-xl">
+              <figure className="px-10 pt-10">
+                <img src={sameFood.image} alt="Shoes" className="rounded-xl w-full h-32" />
+              </figure>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">{sameFood.name}</h2>
+                <p className='font-semibold text-xl'>${sameFood.price}</p>
+                <div className="card-actions">
+                  <Link to={`/shop/singlefood/${sameFood._id}`}><button className="btn btn-primary">See Details</button></Link>
+                </div>
+              </div>
+            </div>
+              )
+          }
+        </div>
     </div>
     );
 };

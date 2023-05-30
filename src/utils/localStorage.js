@@ -2,27 +2,26 @@ import { toast } from "react-hot-toast"
 
 const getWishList=()=>{
     let wishList={}
-    const savedList=localStorage.getItem('wish-list')
-    if(wishList){
-        wishList=JSON.parse(savedList)
+    const storedList=localStorage.getItem('wish-list')
+    if(storedList){
+        wishList=JSON.parse(storedList)
     }
     return wishList
 }
 
 const addToLocalStorage=id=>{
     const wishList=getWishList()
-    const addedOne=wishList[id]
-    if(!addedOne){
+    const added=wishList[id]
+    if(!added){
         wishList[id]=1
-        toast.success('Food added to your wishlist')
-
+        localStorage.setItem('wish-list', JSON.stringify(wishList))
+        toast.success('The food has been added to your wishlist')
     }
     else{
-        toast.error('Food already added to wishlist')
+        toast.error('The toy has been already added to your wishlist')
     }
-    localStorage.setItem('wish-list', JSON.stringify(wishList))
+   
 }
-
 export{
     getWishList,
     addToLocalStorage

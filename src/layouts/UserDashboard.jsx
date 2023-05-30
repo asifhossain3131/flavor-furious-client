@@ -1,11 +1,11 @@
 import React from 'react';
-import UserSidebar from '../pages/private/user dashboard/UserSidebar';
 import { Outlet } from 'react-router-dom';
+import DashboardSidebar from '../pages/private/dashboard/DashboardSidebar';
 
 const UserDashboard = () => {
     return (
         <div className='flex'>
-            <UserSidebar></UserSidebar>
+            <DashboardSidebar></DashboardSidebar>
             <div>
                 <Outlet></Outlet>
             </div>
