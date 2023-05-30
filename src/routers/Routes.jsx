@@ -11,6 +11,8 @@ import Login from "../pages/public/user/Login";
 import Register from "../pages/public/user/Register";
 import SingleFood from "../pages/public/menus/single food/SingleFood";
 import PrivateRoute from "./PrivateRoute";
+import UserDashboard from "../layouts/UserDashboard";
+import UserHome from "../pages/private/user dashboard/user dashboard info/UserHome";
 
   const router=createBrowserRouter([
     {
@@ -49,6 +51,16 @@ import PrivateRoute from "./PrivateRoute";
           path:'singlefood/:id',
           element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
+        }
+      ]
+    },
+    {
+      path:'/userDashboard',
+      element:<UserDashboard></UserDashboard>,
+      children:[
+        {
+          path:'/userDashboard',
+          element:<UserHome></UserHome>
         }
       ]
     }
