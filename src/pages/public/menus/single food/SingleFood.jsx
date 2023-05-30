@@ -3,6 +3,7 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import SingleFoodCard from './SingleFoodCard';
 import SingleFoodTab from './SingleFoodTab';
 import { FaAngleLeft } from 'react-icons/fa';
+import OtherFoods from './OtherFoods';
 
 const SingleFood = () => {
     const food=useLoaderData()
@@ -18,6 +19,7 @@ const SingleFood = () => {
         </div>
         <SingleFoodCard food={food}></SingleFoodCard>
         <SingleFoodTab food={food}></SingleFoodTab>
+        <OtherFoods food={food}></OtherFoods>
    </>
     );
 };
