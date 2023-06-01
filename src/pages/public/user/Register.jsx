@@ -9,11 +9,12 @@ import { toast } from "react-hot-toast";
 
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileUpdate, googleLogin} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const [error, setError] = useState("");
@@ -34,8 +35,25 @@ const Register = () => {
        }
        createUser(email,password)
        .then(res=>{
-          toast.success('Registration has been successful')
-          navigate(target,{replace:true})
+          profileUpdate(name,photo)
+          .then(()=>{
+            const newUser={name:name, email:email}
+            fetch('http://localhost:5000/users',{
+              method:'POST',
+              headers:{
+                'content-type': 'application/json'
+              },
+              body:JSON.stringify(newUser)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+              if(data.insertedId){
+               reset()
+               toast.success('Registration has been successful')
+              }
+              navigate(target,{replace:true})
+            })
+          })
        })
        .catch(err=>{
          setError('Something went wrong. Please try again!')
@@ -51,6 +69,25 @@ const Register = () => {
     }
   }
 
+  const handleGoogleSign=()=>{
+   googleLogin()
+   .then(res=>{
+    const loggedUser=res.user
+    const userInfo={name:loggedUser.displayName, email: loggedUser.email}
+    fetch('http://localhost:5000/users',{
+      method:'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body:JSON.stringify(userInfo)
+    })
+    .then(res=>res.json())
+    .then(()=>{
+      navigate(target,{replace:true})
+    })
+   })
+   
+  }
   return (
     <div className="mx-12 flex flex-col lg:flex-row items-center justify-center">
       <div className="lg:w-1/2">
@@ -182,7 +219,7 @@ const Register = () => {
           <div className="space-y-4">
           <div className="divider">OR</div>
           <p className="text-center font-semibold">Continue sign up with</p>
-          <button className="btn border-none bg-gray-300 text-black hover:bg-opacity-10 w-full"> Continue with Gmail</button>
+          <button onClick={handleGoogleSign} className="btn border-none bg-gray-300 text-black hover:bg-opacity-10 w-full"> Continue with Gmail</button>
           <button className="btn border-none bg-blue-600 hover:bg-blue-500 w-full">Continue with Facebook</button>
           </div>
         </div>

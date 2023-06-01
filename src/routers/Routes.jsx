@@ -13,6 +13,8 @@ import SingleFood from "../pages/public/menus/single food/SingleFood";
 import PrivateRoute from "./PrivateRoute";
 import UserDashboard from "../layouts/UserDashboard";
 import UserHome from "../pages/private/dashboard/user dashboard/UserHome";
+import UserCart from "../pages/private/dashboard/user dashboard/UserCart";
+import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
 
   const router=createBrowserRouter([
     {
@@ -59,12 +61,16 @@ import UserHome from "../pages/private/dashboard/user dashboard/UserHome";
       element:<UserDashboard></UserDashboard>,
       children:[
         {
-          path:'dashboard',
+          path:'/dashboard',
           element:<UserHome></UserHome>
         },
         {
-          path:'userCart',
-          element:<UserDashboard></UserDashboard>
+          path:'cart',
+          element:<UserCart></UserCart>
+        },
+        {
+          path:'allusers',
+          element:<AllUsers></AllUsers>
         }
       ]
     }

@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 import app from '../firebase/firebase.config';
+import axios from 'axios';
 
 
 export const AuthContext=createContext(null)
@@ -50,8 +51,17 @@ const gitLogin=()=>{
 
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth,currentUser=>{
-            setLoading(false)
             setUser(currentUser)
+            if(currentUser && currentUser.email){
+                 axios.post('http://localhost:5000/jwt',{email:currentUser.email})
+                .then(data=>{
+                      localStorage.setItem('access-token', data.data.token)
+                      setLoading(false)
+                })
+            }
+            else{
+                localStorage.removeItem('access-token')
+            }
         })
         return ()=>unsubscribe()
     },[])
