@@ -15,6 +15,7 @@ import UserDashboard from "../layouts/UserDashboard";
 import UserHome from "../pages/private/dashboard/user dashboard/UserHome";
 import UserCart from "../pages/private/dashboard/user dashboard/UserCart";
 import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
+import AddItem from "../pages/private/dashboard/admin dashboard/AddItem";
 
   const router=createBrowserRouter([
     {
@@ -58,7 +59,7 @@ import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
     },
     {
       path:'dashboard',
-      element:<UserDashboard></UserDashboard>,
+      element:<PrivateRoute><UserDashboard></UserDashboard></PrivateRoute>,
       children:[
         {
           path:'/dashboard',
@@ -71,6 +72,10 @@ import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
         {
           path:'allusers',
           element:<AllUsers></AllUsers>
+        },
+        {
+          path:'additem',
+          element:<AddItem></AddItem>
         }
       ]
     }

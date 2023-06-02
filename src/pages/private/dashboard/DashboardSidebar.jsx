@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import navigator from '../../../assets/arrow.png'
 import userIcon from '../../../assets/user.png'
 import { Link, useNavigate } from 'react-router-dom';
+import useAdmin from '../../../hooks/useAdmin';
 
 const DashboardSidebar = () => {
     const [open,setOpen]=useState(true)
     const navigate=useNavigate()
-    const isAdmin=true
+    const [isAdmin]=useAdmin()
     const usersInfo=[
         {infoName:'User Home', image:'https://img.freepik.com/free-photo/home-sign-icon-front-side-white-background_187299-40318.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'My Cart', route:'/dashboard/cart', image:'https://img.freepik.com/free-vector/shopping-cart-vector-technology-icon-silver-gradient-background_53876-112159.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
@@ -17,7 +18,7 @@ const DashboardSidebar = () => {
 
     const adminInfo=[
         {infoName:'Admin Home', image:'https://img.freepik.com/premium-vector/tenant-resident-icon-with-house-flat-vector_116137-4642.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
-        {infoName:'Add food', route:'', image:'https://img.freepik.com/free-vector/cartoon-spoon-fork-knife-kitchen-design_24877-57345.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
+        {infoName:'Add food', route:'/dashboard/additem', image:'https://img.freepik.com/free-vector/cartoon-spoon-fork-knife-kitchen-design_24877-57345.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'Manage food', image:'https://img.freepik.com/free-vector/burger-cheese-with-fire-cartoon-vector-icon-illustration-food-object-icon-concept-isolated-premium_138676-5539.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'Manage bookings', image:'https://img.freepik.com/premium-vector/calendar-date-schedule-flat-concept-design_229280-168.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'All users', route:'/dashboard/allusers', image:'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'}

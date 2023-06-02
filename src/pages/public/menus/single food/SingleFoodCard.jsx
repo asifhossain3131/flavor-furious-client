@@ -24,7 +24,7 @@ const SingleFoodCard = ({food}) => {
             .then(res=>res.json())
             .then(data=>{
               if(data?.message){
-                // refetch
+                refetch()
                 toast.success('Food added to cart successfully')
               }
             })

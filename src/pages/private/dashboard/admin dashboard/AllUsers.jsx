@@ -3,11 +3,15 @@ import React from 'react';
 import SectionTitle from '../../../../components/SectionTitle';
 import { FaTrashAlt, FaUserCog } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2'
+
 
 const AllUsers = () => {
+  const[axiosSecure]=useAxiosSecure()
     const{data:users=[], refetch}=useQuery(['users'], async()=>{
-        const res=await fetch('http://localhost:5000/users')
-        return res.json()
+        const res=await axiosSecure.get('/users')
+        return res.data
     })
 
     const handleAdmin=id=>{
@@ -20,15 +24,39 @@ const AllUsers = () => {
         toast.success('Admin created successfully')
        })
     }
+
+    const hanldeDelete=id=>{
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "The user will be deleted permanantly",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure.delete(`/user/${id}`)
+          .then(res=>{
+            refetch()
+            Swal.fire(
+              'Deleted!',
+              'User has been deleted.',
+              'success'
+            )
+          })
+        }
+      })
+    }
     return (
-        <div>
+        <div className='w-full text-center'>
           <SectionTitle
            title={'users are precious'}
            subtitle={'want to update users?'}
            header={'all users are here'}
           ></SectionTitle>
 
-<div className="overflow-x-auto">
+<div className="overflow-x-auto w-9/12 mx-auto">
   <table className="table table-zebra">
     {/* head */}
     <thead>
@@ -52,7 +80,7 @@ const AllUsers = () => {
             <FaUserCog></FaUserCog>
  </button>
             }</td>
-<td><button className="btn btn-square bg-red-500 border-none hover:bg-red-400">
+<td><button onClick={()=>hanldeDelete(user._id)} className="btn btn-square bg-red-500 border-none hover:bg-red-400">
           <FaTrashAlt></FaTrashAlt>
 </button></td>
          </tr>
