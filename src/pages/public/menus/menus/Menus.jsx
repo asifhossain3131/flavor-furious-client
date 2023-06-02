@@ -3,26 +3,18 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import MenuCard from '../../../../components/MenuCard';
 import { useLoaderData } from 'react-router-dom';
+import useFoods from '../../../../hooks/useFoods';
 
 const Menus = () => {
-    const[menus,setMenus]=useState([])
+    // const[menus,setMenus]=useState([])
     const {totalFoods}=useLoaderData()
    const[currentPage,setCurrentPage]=useState(0)
    const[foodPerPage,setFoodPerPage]=useState(10)
    const totalPages=Math.ceil(totalFoods/foodPerPage)
    const pageNumbers=[...Array(totalPages).keys()]
    const options=[5,10,15]
-  
 
-
-    useEffect(()=>{
-        const fetchData=async()=>{
-          const res=await fetch(`http://localhost:5000/menus?limit=${foodPerPage}&currentPage=${currentPage}`)
-           const data=await res.json()
-           setMenus(data)
-        }
-        fetchData()
-    },[foodPerPage,currentPage])
+   const[menus]=useFoods(foodPerPage,currentPage)
 
     function animateElements() {
         AOS.refresh(); // Refresh AOS to clear previous animations

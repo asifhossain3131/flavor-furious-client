@@ -16,6 +16,7 @@ import UserHome from "../pages/private/dashboard/user dashboard/UserHome";
 import UserCart from "../pages/private/dashboard/user dashboard/UserCart";
 import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
 import AddItem from "../pages/private/dashboard/admin dashboard/AddItem";
+import ManageFood from "../pages/private/dashboard/admin dashboard/ManageFood";
 
   const router=createBrowserRouter([
     {
@@ -76,6 +77,10 @@ import AddItem from "../pages/private/dashboard/admin dashboard/AddItem";
         {
           path:'additem',
           element:<AddItem></AddItem>
+        },
+        {
+          path:'managefood',
+          element:<ManageFood></ManageFood>
         }
       ]
     }

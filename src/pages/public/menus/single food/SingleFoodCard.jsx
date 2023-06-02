@@ -10,7 +10,7 @@ const SingleFoodCard = ({food}) => {
     const{_id,name,category,image,rating,recipe,price,details,isPopular}=food
      const [count,setCount]=useState(1)
      const{user}=useContext(AuthContext)
-     const [refetch]=useCart()
+     const [ , refetch]=useCart()
      
 
      const handleCart=()=>{
