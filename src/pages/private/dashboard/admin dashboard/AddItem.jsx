@@ -72,9 +72,11 @@ const AddItem = () => {
               </option>
               <option></option>
               <option>Chicken</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
+              <option>Beef</option>
+              <option>Dessert</option>
+              <option>Pasta</option>
+              <option>Seafood</option>
+              <option>Vegeterian</option>
             </select>
           </div>
 

@@ -9,7 +9,6 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 const ManageFood = () => {
     const[menus, ,refetch]=useFoods()
     const[axiosSecure]=useAxiosSecure()
-    console.log(menus)
     
     const hanldeDelete=id=>{
       Swal.fire({

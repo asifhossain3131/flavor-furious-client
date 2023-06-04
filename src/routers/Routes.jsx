@@ -17,6 +17,7 @@ import UserCart from "../pages/private/dashboard/user dashboard/UserCart";
 import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
 import AddItem from "../pages/private/dashboard/admin dashboard/AddItem";
 import ManageFood from "../pages/private/dashboard/admin dashboard/ManageFood";
+import PaymentSuccess from "../pages/private/dashboard/user dashboard/PaymentSuccess";
 
   const router=createBrowserRouter([
     {
@@ -81,6 +82,10 @@ import ManageFood from "../pages/private/dashboard/admin dashboard/ManageFood";
         {
           path:'managefood',
           element:<ManageFood></ManageFood>
+        },
+        {
+          path:'paymentSuccess/:transId',
+          element:<PaymentSuccess></PaymentSuccess>
         }
       ]
     }

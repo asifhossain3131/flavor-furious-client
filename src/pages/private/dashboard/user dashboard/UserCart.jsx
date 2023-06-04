@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import SectionTitle from '../../../../components/SectionTitle';
 import useCart from '../../../../hooks/useCart';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../../providers/AuthProvider';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const UserCart = () => {
     const[cart]=useCart()
     const[carts,setCarts]=useState(cart[0]?.items)
+    const{user}=useContext(AuthContext)
     const totalFoods=carts?.reduce((sum,food)=>food.quantity+sum,0)
     const totalCost=carts?.reduce((sum,food)=>food.total+sum,0)
+    const[axiosSecure]=useAxiosSecure()
+
+    const handlePayment=email=>{
+      const result=axiosSecure.post(`/order/${email}`,email)
+      .then(data=>{
+        if(data.statusText==='OK'){
+          window.location.replace(data.data.url)
+        }
+      })
+    }
     return (
         <div>
             <SectionTitle
@@ -54,6 +68,7 @@ const UserCart = () => {
   <div className='space-y-2 text-center'>
     <h1 className='font-semibold text-2xl'>Total Food: {totalFoods}</h1>
     <p className='font-semibold text-xl'>Total Price: {totalCost?.toFixed(2)}</p>
+   <button onClick={()=>handlePayment(user.email)} className="btn btn-wide my-2">Go to payment</button>
   </div>
 </div>
         </div>
