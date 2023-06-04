@@ -65,12 +65,16 @@ const UserCart = () => {
   </tbody>
   </table>
   <div className='divider'></div>
+</div>
+ {totalFoods? <>
   <div className='space-y-2 text-center'>
     <h1 className='font-semibold text-2xl'>Total Food: {totalFoods}</h1>
     <p className='font-semibold text-xl'>Total Price: {totalCost?.toFixed(2)}</p>
-   <button onClick={()=>handlePayment(user.email)} className="btn btn-wide my-2">Go to payment</button>
+    <button onClick={()=>handlePayment(user.email)} className="btn btn-wide my-2">Go to payment</button>
   </div>
-</div>
+ </>:
+ <><h1 className='text-xl text-center'>NO CARTS YET. READY TO ORDER ONE? <br /> <Link to='/shop' className='text-yellow-600'>Order Food</Link></h1></>
+ }
         </div>
     );
 };

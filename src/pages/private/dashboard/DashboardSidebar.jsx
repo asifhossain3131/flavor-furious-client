@@ -12,7 +12,7 @@ const DashboardSidebar = () => {
         {infoName:'User Home', image:'https://img.freepik.com/free-photo/home-sign-icon-front-side-white-background_187299-40318.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'My Cart', route:'/dashboard/cart', image:'https://img.freepik.com/free-vector/shopping-cart-vector-technology-icon-silver-gradient-background_53876-112159.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'My Reservation', image:'https://img.freepik.com/premium-vector/calendar-black-white-icon_118813-10405.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
-        {infoName:'Payment History', image:'https://img.freepik.com/premium-vector/business-investment-with-money-cash-dollar-paper-receipt-invoice-briefcase-3d-icon-isometric-vector-illustration-financial-account-management-budget-funds-currency-banking-corporate-documents_93487-3783.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
+        {infoName:'Payment History', route:'/dashboard/paymenthistory', image:'https://img.freepik.com/premium-vector/business-investment-with-money-cash-dollar-paper-receipt-invoice-briefcase-3d-icon-isometric-vector-illustration-financial-account-management-budget-funds-currency-banking-corporate-documents_93487-3783.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'Reviews', image:'https://img.freepik.com/free-icon/chat_318-565502.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'}
     ]
 
@@ -21,7 +21,8 @@ const DashboardSidebar = () => {
         {infoName:'Add food', route:'/dashboard/additem', image:'https://img.freepik.com/free-vector/cartoon-spoon-fork-knife-kitchen-design_24877-57345.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'Manage food', route:'/dashboard/managefood', image:'https://img.freepik.com/free-vector/burger-cheese-with-fire-cartoon-vector-icon-illustration-food-object-icon-concept-isolated-premium_138676-5539.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
         {infoName:'Manage bookings',  image:'https://img.freepik.com/premium-vector/calendar-date-schedule-flat-concept-design_229280-168.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=robertav1_2_sidr'},
-        {infoName:'All users', route:'/dashboard/allusers', image:'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'}
+        {infoName:'All users', route:'/dashboard/allusers', image:'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=robertav1_2_sidr'},
+        {infoName:'All orders', route:'/dashboard/allorders', image:'https://img.freepik.com/free-photo/cardboard-box-with-cargo-checklist-pencil_107791-16644.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=ais'}
     ]
     return (
         <div className={`${open? 'w-52 lg:w-72':'w-20'} bg-sky-900 duration-300  relative`}>

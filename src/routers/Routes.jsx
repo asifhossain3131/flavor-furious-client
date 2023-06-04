@@ -18,6 +18,8 @@ import AllUsers from "../pages/private/dashboard/admin dashboard/AllUsers";
 import AddItem from "../pages/private/dashboard/admin dashboard/AddItem";
 import ManageFood from "../pages/private/dashboard/admin dashboard/ManageFood";
 import PaymentSuccess from "../pages/private/dashboard/user dashboard/PaymentSuccess";
+import PaymentHistory from "../pages/private/dashboard/user dashboard/PaymentHistory";
+import AllOrders from "../pages/private/dashboard/admin dashboard/AllOrders";
 
   const router=createBrowserRouter([
     {
@@ -76,12 +78,20 @@ import PaymentSuccess from "../pages/private/dashboard/user dashboard/PaymentSuc
           element:<AllUsers></AllUsers>
         },
         {
+       path:'paymenthistory',
+       element:<PaymentHistory></PaymentHistory>
+        },
+        {
           path:'additem',
           element:<AddItem></AddItem>
         },
         {
           path:'managefood',
           element:<ManageFood></ManageFood>
+        },
+        {
+     path:'allorders',
+     element:<AllOrders></AllOrders>
         },
         {
           path:'paymentSuccess/:transId',

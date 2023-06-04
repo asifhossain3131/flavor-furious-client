@@ -44,7 +44,7 @@ const ManageFood = () => {
              title={'want to update a food?'}
              subtitle={'or delete one?'}
             ></SectionTitle>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto w-10/12 mx-auto text-center">
   <table className="table">
     {/* head */}
     <thead>
