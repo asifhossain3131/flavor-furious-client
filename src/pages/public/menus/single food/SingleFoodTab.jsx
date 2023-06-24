@@ -10,7 +10,7 @@ const SingleFoodTab = ({food}) => {
     const{energyCalorie,fat,protein,allergies,carbohydrate}=categoryDetail
      
     useEffect(()=>{
-        fetch(`http://localhost:5000/categoryDetail?category=${category}`)
+        fetch(`https://flavor-fusion-server-six.vercel.app/categoryDetail?category=${category}`)
         .then(res=>res.json())
         .then(data=>setCategoryDetail(data))
     },[])

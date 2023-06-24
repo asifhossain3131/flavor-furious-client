@@ -8,7 +8,7 @@ const CategoryWiseMenu = () => {
      const categroyName=category.name.toLowerCase()
     const [categoryFoods, setCategoryFoods]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/menus/${categroyName}`)
+        fetch(`https://flavor-fusion-server-six.vercel.app/menus/${categroyName}`)
         .then(res=>res.json())
         .then(data=>setCategoryFoods(data))
     },[categroyName])

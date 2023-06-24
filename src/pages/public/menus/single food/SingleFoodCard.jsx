@@ -15,7 +15,7 @@ const SingleFoodCard = ({food}) => {
 
      const handleCart=()=>{
         if(user && user.email){
-            fetch(`http://localhost:5000/cart?email=${user.email}&name=${name}&price=${price}&quantity=${count}`,{
+            fetch(`https://flavor-fusion-server-six.vercel.app/cart?email=${user.email}&name=${name}&price=${price}&quantity=${count}`,{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

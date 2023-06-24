@@ -14,7 +14,7 @@ const OtherFoods = ({food}) => {
     const categoryName=food.category
  const [sameFoods,setSameFoods]=useState([])
   useEffect(()=>{
-    fetch(`http://localhost:5000/menus/${categoryName}`)
+    fetch(`https://flavor-fusion-server-six.vercel.app/menus/${categoryName}`)
     .then(res=>res.json())
     .then(data=>{
         const filterd=data?.filter(single=>single.name!==foodName)

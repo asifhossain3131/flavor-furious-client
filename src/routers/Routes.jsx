@@ -48,7 +48,7 @@ import AllOrders from "../pages/private/dashboard/admin dashboard/AllOrders";
         {
           path:'/shop',
           element:<Menus></Menus>,
-          loader:()=>fetch('http://localhost:5000/countMenus')
+          loader:()=>fetch('https://flavor-fusion-server-six.vercel.app/countMenus')
         },
         {
           path:'shop/categoryFood/:name',
@@ -57,7 +57,7 @@ import AllOrders from "../pages/private/dashboard/admin dashboard/AllOrders";
         {
           path:'singlefood/:id',
           element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
+          loader:({params})=>fetch(`https://flavor-fusion-server-six.vercel.app/menu/${params.id}`)
         }
       ]
     },
@@ -76,6 +76,9 @@ import AllOrders from "../pages/private/dashboard/admin dashboard/AllOrders";
         {
           path:'allusers',
           element:<AllUsers></AllUsers>
+        },
+        {
+     path:'reservation'
         },
         {
        path:'paymenthistory',

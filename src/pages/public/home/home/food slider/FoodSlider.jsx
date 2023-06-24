@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 const FoodSlider = () => {
   const [categories,setCategories]=useState([])
   useEffect(()=>{
-    fetch('http://localhost:5000/categories')
+    fetch('https://flavor-fusion-server-six.vercel.app/categories')
     .then(res=>res.json())
     .then(data=>setCategories(data))
   },[])

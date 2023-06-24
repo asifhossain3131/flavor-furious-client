@@ -38,7 +38,7 @@ const Register = () => {
           profileUpdate(name,photo)
           .then(()=>{
             const newUser={name:name, email:email}
-            fetch('http://localhost:5000/users',{
+            fetch('https://flavor-fusion-server-six.vercel.app/users',{
               method:'POST',
               headers:{
                 'content-type': 'application/json'
@@ -74,7 +74,7 @@ const Register = () => {
    .then(res=>{
     const loggedUser=res.user
     const userInfo={name:loggedUser.displayName, email: loggedUser.email}
-    fetch('http://localhost:5000/users',{
+    fetch('https://flavor-fusion-server-six.vercel.app/users',{
       method:'POST',
       headers:{
         'content-type': 'application/json'

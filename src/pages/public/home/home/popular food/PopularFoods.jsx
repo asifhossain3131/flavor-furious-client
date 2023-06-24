@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const PopularFoods = () => {
     const[popularMenus,setPopularMenus]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/popularDishes')
+        fetch('https://flavor-fusion-server-six.vercel.app/popularDishes')
         .then(res=>res.json())
         .then(data=>setPopularMenus(data))
     },[])

@@ -3,6 +3,8 @@ import Banner from '../banner/Banner';
 import FoodSlider from './food slider/FoodSlider';
 import PopularFoods from './popular food/PopularFoods';
 import CustomerReviews from '../customer reviews/CustomerReviews';
+import HotNews from './hot news/HotNews';
+import Reservation from './reservation/Reservation';
 
 const Home = () => {
     return (
@@ -11,6 +13,8 @@ const Home = () => {
             <FoodSlider></FoodSlider>
             <PopularFoods></PopularFoods>
             <CustomerReviews></CustomerReviews>
+            <HotNews></HotNews>
+            <Reservation></Reservation>
         </div>
     );
 };

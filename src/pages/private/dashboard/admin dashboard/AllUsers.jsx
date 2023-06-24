@@ -15,7 +15,7 @@ const AllUsers = () => {
     })
 
     const handleAdmin=id=>{
-       fetch(`http://localhost:5000/user/${id}`,{
+       fetch(`https://flavor-fusion-server-six.vercel.app/user/${id}`,{
         method:'PATCH',
        })
        .then(res=>res.json())
