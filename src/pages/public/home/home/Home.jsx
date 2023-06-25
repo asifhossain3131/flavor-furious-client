@@ -5,6 +5,8 @@ import PopularFoods from './popular food/PopularFoods';
 import CustomerReviews from '../customer reviews/CustomerReviews';
 import HotNews from './hot news/HotNews';
 import Reservation from './reservation/Reservation';
+import Sponsors from '../sponsors/Sponsors';
+import ContactUs from '../contact us/ContactUs';
 
 const Home = () => {
     return (
@@ -15,6 +17,8 @@ const Home = () => {
             <CustomerReviews></CustomerReviews>
             <HotNews></HotNews>
             <Reservation></Reservation>
+            <Sponsors></Sponsors>
+            <ContactUs></ContactUs>
         </div>
     );
 };
