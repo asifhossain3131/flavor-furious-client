@@ -7,6 +7,9 @@ import HotNews from './hot news/HotNews';
 import Reservation from './reservation/Reservation';
 import Sponsors from '../sponsors/Sponsors';
 import ContactUs from '../contact us/ContactUs';
+import Offers from '../offers/Offers';
+import Counter from '../counter/Counter';
+import MobileApp from '../mobile app/MobileApp';
 
 const Home = () => {
     return (
@@ -14,7 +17,10 @@ const Home = () => {
             <Banner></Banner>
             <FoodSlider></FoodSlider>
             <PopularFoods></PopularFoods>
+            <Offers></Offers>
+            <MobileApp></MobileApp>
             <CustomerReviews></CustomerReviews>
+            <Counter></Counter>
             <HotNews></HotNews>
             <Reservation></Reservation>
             <Sponsors></Sponsors>

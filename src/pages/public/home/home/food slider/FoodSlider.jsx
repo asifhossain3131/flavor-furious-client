@@ -28,6 +28,7 @@ const FoodSlider = () => {
           <Swiper
         slidesPerView={3}
         spaceBetween={30}
+        loop={true}
         pagination={{
           clickable: true,
         }}
